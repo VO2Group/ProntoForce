@@ -1,0 +1,43 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: vo2
+      changes:
+        - createTable:
+            tableName: samples
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  startWith: 1
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: message
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+        - insert:
+            tableName: samples
+            columns:
+              - column:
+                  name: message
+                  value: First message
+        - insert:
+            tableName: samples
+            columns:
+              - column:
+                  name: message
+                  value: Second message
+  - changeSet:
+      id: 2
+      author: vo2
+      changes:
+        - insert:
+            tableName: samples
+            columns:
+              - column:
+                  name: message
+                  value: new message created from migrate 2
