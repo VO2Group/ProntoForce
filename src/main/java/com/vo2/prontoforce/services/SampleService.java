@@ -1,8 +1,8 @@
-package com.vo2.javatest.services;
+package com.vo2.prontoforce.services;
 
-import com.vo2.javatest.domain.dto.SampleDto;
-import com.vo2.javatest.domain.entities.SampleEntity;
-import com.vo2.javatest.domain.repositories.SampleRepository;
+import com.vo2.prontoforce.domain.dto.SampleDto;
+import com.vo2.prontoforce.domain.entities.SampleEntity;
+import com.vo2.prontoforce.domain.repositories.SampleRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
-import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;

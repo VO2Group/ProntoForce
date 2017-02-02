@@ -1,6 +1,6 @@
-package com.vo2.javatest.domain.repositories;
+package com.vo2.prontoforce.domain.repositories;
 
-import com.vo2.javatest.domain.entities.SampleEntity;
+import com.vo2.prontoforce.domain.entities.SampleEntity;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

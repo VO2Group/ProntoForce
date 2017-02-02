@@ -1,4 +1,4 @@
-package com.vo2.javatest.mvc.controllers;
+package com.vo2.prontoforce.mvc.controllers;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

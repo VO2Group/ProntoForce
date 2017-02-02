@@ -1,7 +1,7 @@
-package com.vo2.javatest.mvc.controllers;
+package com.vo2.prontoforce.mvc.controllers;
 
-import com.vo2.javatest.domain.dto.SampleDto;
-import com.vo2.javatest.services.SampleService;
+import com.vo2.prontoforce.domain.dto.SampleDto;
+import com.vo2.prontoforce.services.SampleService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

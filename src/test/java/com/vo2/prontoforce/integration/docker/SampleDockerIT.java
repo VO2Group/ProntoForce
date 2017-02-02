@@ -1,6 +1,6 @@
-package com.vo2.javatest.integration.docker;
+package com.vo2.prontoforce.integration.docker;
 
-import com.vo2.javatest.domain.dto.SampleDto;
+import com.vo2.prontoforce.domain.dto.SampleDto;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.core.ParameterizedTypeReference;

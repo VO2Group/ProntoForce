@@ -1,7 +1,7 @@
-package com.vo2.javatest.integration;
+package com.vo2.prontoforce.integration;
 
-import com.vo2.javatest.domain.dto.SampleDto;
-import com.vo2.javatest.services.SampleService;
+import com.vo2.prontoforce.domain.dto.SampleDto;
+import com.vo2.prontoforce.services.SampleService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
 @AutoConfigureMockMvc
-public class JavaTestOnMockRESTServerIT {
+public class ProntoForceOnMockRESTServerIT {
 
 	@Autowired
 	private MockMvc mockMvc;

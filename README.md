@@ -15,7 +15,7 @@
         `./mvnw spring-boot:run`
 
     - from your IDE :
-    run or debug [JavaTestApplication](./src/main/java/com/vo2/JavaTestApplication.java) (class annotated with @SpringBootApplication)
+    run or debug [ProntoForceApplication](./src/main/java/com/vo2/ProntoForceApplication.java) (class annotated with @SpringBootApplication)
  
 3. Checking all is working :
     Visit 
@@ -28,26 +28,26 @@
 
 A default embedded server (embedded tomcat) and an in memory relational database (hsql) are used with the default profile.
 There are 2 mains controllers/entry points, a service component and some domain's staff. 
-- _REST Controller_ : com.vo2.javatest.mvc.controllers.SampleRestController
+- _REST Controller_ : com.vo2.prontoforce.mvc.controllers.SampleRestController
     - It exposes "sample" resource containing just "id" (key) and "message" properties
     - You can use [Postman](https://www.getpostman.com/docs/) to quick test REST API
     - To list all available "samples" :
         
         `GET http://localhost:8080/rest/samples`
         
-        {see [SampleRestController#allMessages](./src/main/java/com/vo2/javatest/mvc/controllers/SampleRestController.java#L39) method}
+        {see [SampleRestController#allMessages](./src/main/java/com/vo2/prontoforce/mvc/controllers/SampleRestController.java#L39) method}
 
     - To access a single sample by its id
         
         `GET http://localhost:8080/rest/sample/1`
         
-        {see   [SampleRestController#byIdMessage](./src/main/java/com/vo2/javatest/mvc/controllers/SampleRestController.java#L52) method}
+        {see   [SampleRestController#byIdMessage](./src/main/java/com/vo2/prontoforce/mvc/controllers/SampleRestController.java#L52) method}
 
     - To list all samples which message contains a substring
          
         `GET http://localhost:8080/rest/sample/like/mess` (will list all available samples with message that contains "mess")
         
-        {see [SampleRestController#likeMessage](./src/main/java/com/vo2/javatest/mvc/controllers/SampleRestController.java#L128) method}
+        {see [SampleRestController#likeMessage](./src/main/java/com/vo2/prontoforce/mvc/controllers/SampleRestController.java#L128) method}
 
     - Ta add a new sample
 
@@ -67,25 +67,25 @@ There are 2 mains controllers/entry points, a service component and some domain'
         }
         ```
 
-        {see [SampleRestController#addSample](./src/main/java/com/vo2/javatest/mvc/controllers/SampleRestController.java#L66) method}
+        {see [SampleRestController#addSample](./src/main/java/com/vo2/prontoforce/mvc/controllers/SampleRestController.java#L66) method}
 
     - To update an existing sample
 
         `PUT http://localhost:8080/rest/sample/1` (with same body as when adding a new sample)
 
-        {see [SampleRestController#updateSample](./src/main/java/com/vo2/javatest/mvc/controllers/SampleRestController.java#L85) method}
+        {see [SampleRestController#updateSample](./src/main/java/com/vo2/prontoforce/mvc/controllers/SampleRestController.java#L85) method}
 
     - To delete an entry by id
 
         `DELETE http://localhost:8080/rest/sample/3` (delete sample with id 3)
 
-        {see [SampleRestController#deleteSample](./src/main/java/com/vo2/javatest/mvc/controllers/SampleRestController.java#L109) method}
+        {see [SampleRestController#deleteSample](./src/main/java/com/vo2/prontoforce/mvc/controllers/SampleRestController.java#L109) method}
 
-- _Web Controller_ : com.vo2.javatest.mvc.controllers.SampleWebController
+- _Web Controller_ : com.vo2.prontoforce.mvc.controllers.SampleWebController
     There is only one method on root "/" using a thymeleaf template (src/main/resources/templates/sample.html)
     
-- _Service Layer_ : packaged in com.vo2.javatest.services.SampleService which calls the data layer and convert returned database entities into disconnected DTOs
-- _Domain / DATA Layer_ : packaged in com.vo2.javatest.domain => JPA entities definition, DTOs and low level data components (DAO/Spring DATA Repositories)
+- _Service Layer_ : packaged in com.vo2.prontoforce.services.SampleService which calls the data layer and convert returned database entities into disconnected DTOs
+- _Domain / DATA Layer_ : packaged in com.vo2.prontoforce.domain => JPA entities definition, DTOs and low level data components (DAO/Spring DATA Repositories)
 
 ## Database "versioning" and migration tool
 
@@ -97,10 +97,10 @@ All changes are listed in changelog yaml [file](./src/main/resources/db/changelo
 
 JUnit is used for UT (\*\*/\*\*Test.java) or IT integration tests (\*\*/\*\*IT.java)
 
-- For a simple unit test for a service class, please refer to [SampleServiceTest](./src/test/java/com/vo2/javatest/services/SampleServiceTest.java)
-- There is an _**integration test**_ with embedded server running on a random port in [JavaTestOnRandomPortIT](./src/test/java/com/vo2/javatest/integration/JavaTestOnRandomPortIT.java)
-- There is a _**mocked integration test**_ without starting a real servlet context but a mocked one and with a mock behaviour for the service in [JavaTestOnMockRESTServerIT](./src/test/java/com/vo2/javatest/JavaTestOnMockRESTServerIT.java)
-- Finally, to test spring data repository with a real call to JPA behind a fresh in memory database, please look at [SampleRepositoryTest](./src/test/java/com/vo2/javatest/domain/repositories/SampleRepositoryTest.java)
+- For a simple unit test for a service class, please refer to [SampleServiceTest](./src/test/java/com/vo2/prontoforce/services/SampleServiceTest.java)
+- There is an _**integration test**_ with embedded server running on a random port in [ProntoForceOnRandomPortIT](./src/test/java/com/vo2/prontoforce/integration/ProntoForceOnRandomPortIT.java)
+- There is a _**mocked integration test**_ without starting a real servlet context but a mocked one and with a mock behaviour for the service in [ProntoForceOnMockRESTServerIT](./src/test/java/com/vo2/prontoforce/ProntoForceOnMockRESTServerIT.java)
+- Finally, to test spring data repository with a real call to JPA behind a fresh in memory database, please look at [SampleRepositoryTest](./src/test/java/com/vo2/prontoforce/domain/repositories/SampleRepositoryTest.java)
 
 To run unit tests and simple integration tests :
 
@@ -117,7 +117,7 @@ To run only integration tests :
 
 ## Package and run as docker container for integration tests
 
-Docker tests (satisfying pattern \*\*/\*\*DockerIT.java as [SampleDockerIT.java](./src/test/java/com/vo2/javatest/integration/docker/SampleDockerIT.java)) are integration tests that are skipped by default.
+Docker tests (satisfying pattern \*\*/\*\*DockerIT.java as [SampleDockerIT.java](./src/test/java/com/vo2/prontoforce/integration/docker/SampleDockerIT.java)) are integration tests that are skipped by default.
 
 On a Docker host, you may start them by running :
 
@@ -138,7 +138,7 @@ This profile require a postgres database running on 5432 port. This requirement 
 
   `docker pull postgres`
 
-  `docker run --name postgres-javatest-prod -e POSTGRES_PASSWORD=passw0rd postgres`
+  `docker run --name postgres-prontoforce-prod -e POSTGRES_PASSWORD=passw0rd postgres`
 
 
 ## Where is the documentation?

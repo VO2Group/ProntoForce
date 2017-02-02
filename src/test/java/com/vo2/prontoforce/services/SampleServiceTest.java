@@ -1,8 +1,8 @@
-package com.vo2.javatest.services;
+package com.vo2.prontoforce.services;
 
-import com.vo2.javatest.domain.dto.SampleDto;
-import com.vo2.javatest.domain.entities.SampleEntity;
-import com.vo2.javatest.domain.repositories.SampleRepository;
+import com.vo2.prontoforce.domain.dto.SampleDto;
+import com.vo2.prontoforce.domain.entities.SampleEntity;
+import com.vo2.prontoforce.domain.repositories.SampleRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;

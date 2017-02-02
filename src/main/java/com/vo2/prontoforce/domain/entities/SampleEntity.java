@@ -1,6 +1,6 @@
-package com.vo2.javatest.domain.entities;
+package com.vo2.prontoforce.domain.entities;
 
-import com.vo2.javatest.domain.dto.SampleDto;
+import com.vo2.prontoforce.domain.dto.SampleDto;
 
 import javax.persistence.*;
 import java.io.Serializable;

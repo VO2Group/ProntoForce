@@ -22,8 +22,12 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <docker.image.prefix>javatest</docker.image.prefix>
         <surefire.skip>false</surefire.skip>
+        <postgresql.version>9.4-1206-jdbc42</postgresql.version>
+        <maven-failsafe-plugin.version>2.19.1</maven-failsafe-plugin.version>
+        <maven-surefire-plugin.version>2.19</maven-surefire-plugin.version>
+        <docker-maven-plugin.version>0.19.0</docker-maven-plugin.version>
+        <docker-maven-plugin.dockerHost>http://127.0.0.1:2375</docker-maven-plugin.dockerHost>
     </properties>
 
     <dependencies>
@@ -53,7 +57,7 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>9.4-1206-jdbc42</version>
+            <version>${postgresql.version}</version>
         </dependency>
 
         <dependency>
@@ -91,7 +95,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.19</version>
+                <version>${maven-surefire-plugin.version}</version>
                 <configuration>
                     <skip>${surefire.skip}</skip>
                 </configuration>
@@ -106,7 +110,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
-                <version>2.19.1</version>
+                <version>${maven-failsafe-plugin.version}</version>
                 <configuration>
                     <excludes>
                         <exclude>**/**DockerIT.java</exclude>
@@ -180,7 +184,7 @@
                     <plugin>
                         <groupId>io.fabric8</groupId>
                         <artifactId>docker-maven-plugin</artifactId>
-                        <version>0.19.0</version>
+                        <version>${docker-maven-plugin.version}</version>
 
                         <!-- attach plugin lifecycle to integration tests phase -->
                         <!-- Connect start/stop to pre- and post-integration-test phase, respectively if you want
@@ -199,7 +203,7 @@
 
                                 <!-- docker running on port 8080 of container but accessible on host.port to host  -->
                                 <configuration>
-                                    <dockerHost>http://127.0.0.1:2375</dockerHost>
+                                    <dockerHost>${docker-maven-plugin.dockerHost}</dockerHost>
                                     <verbose>true</verbose>
                                     <images>
                                         <image>

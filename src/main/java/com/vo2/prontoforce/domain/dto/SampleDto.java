@@ -1,4 +1,4 @@
-package com.vo2.javatest.domain.dto;
+package com.vo2.prontoforce.domain.dto;
 
 /**
  * Created by VO2 on 16/01/2017.

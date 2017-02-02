@@ -9,4 +9,4 @@
  * To launch only integration tests :
  *       mvnw clean verify -Dsurefire.skip=true
  */
-package com.vo2.javatest.integration.docker;
+package com.vo2.prontoforce.integration.docker;
